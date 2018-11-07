@@ -37,6 +37,7 @@ class Pad(shapeRenderer: ShapeRenderer,
         mShapeRenderer.identity()
         mShapeRenderer.translate(mX, mY, 0f)
         mShapeRenderer.rotate(0f, 0f, 1f, mRotation)
+        mShapeRenderer.translate(-mWidth / 2, -mHeight / 2, 0f)
         mShapeRenderer.rect(0f, 0f, mWidth, mHeight)
         mShapeRenderer.end()
     }

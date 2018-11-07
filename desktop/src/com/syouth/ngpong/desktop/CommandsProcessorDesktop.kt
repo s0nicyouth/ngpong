@@ -5,12 +5,12 @@ import com.badlogic.gdx.Input
 import com.syouth.ngpong.input.CommandsProcessor
 
 class CommandsProcessorDesktop : CommandsProcessor {
-    override fun isUp() : Boolean {
-        return Gdx.input.isKeyPressed(Input.Keys.UP)
-    }
+    override fun isLeft(): Boolean  = Gdx.input.isKeyPressed(Input.Keys.LEFT)
 
-    override fun isDown() : Boolean {
-        return Gdx.input.isKeyPressed(Input.Keys.DOWN)
-    }
+    override fun isRight(): Boolean = Gdx.input.isKeyPressed(Input.Keys.RIGHT)
+
+    override fun isUp() : Boolean = Gdx.input.isKeyPressed(Input.Keys.UP)
+
+    override fun isDown() : Boolean = Gdx.input.isKeyPressed(Input.Keys.DOWN)
 
 }
