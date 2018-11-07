@@ -1,5 +1,6 @@
 package com.syouth.ngpong.entities
 
+import com.badlogic.gdx.graphics.Camera
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import java.lang.IllegalStateException
 
@@ -8,9 +9,11 @@ class Pad(shapeRenderer: ShapeRenderer,
           y: Float,
           width: Float,
           height: Float,
-          roation: Float) : Entity {
+          rotation: Float,
+          camera: Camera) : Entity {
 
     private val mShapeRenderer = shapeRenderer
+    private val mCamera = camera
 
     private var mX = x
     private var mY = y
@@ -29,10 +32,11 @@ class Pad(shapeRenderer: ShapeRenderer,
             field = h
         }
 
-    var mRotation = roation
+    var mRotation = rotation
 
 
     override fun draw() {
+        mShapeRenderer.projectionMatrix = mCamera.combined
         mShapeRenderer.begin(ShapeRenderer.ShapeType.Filled)
         mShapeRenderer.identity()
         mShapeRenderer.translate(mX, mY, 0f)
