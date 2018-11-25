@@ -3,16 +3,14 @@ package com.syouth.ngpong.actors
 import com.syouth.ngpong.entities.Entity
 import com.syouth.ngpong.input.CommandsProcessor
 
+private const val MASS = 5f
+private const val RESISTANCE = 8f
+private const val APPLIED_FORCE = 2500f
+
+private const val MOMENT_OF_INERTIA = 5f
+private const val APPLIED_TORQUE = 2500f
+
 class PadActor(commandsProcessor: CommandsProcessor, entity: Entity) : Actor {
-
-    companion object {
-        private const val MASS = 5f
-        private const val RESISTANCE = 8f
-        private const val APPLIED_FORCE = 2500f
-
-        private const val MOMENT_OF_INERTIA = 5f
-        private const val APPLIED_TORQUE = 2500f
-    }
 
     private val mEntity = entity
     private val mCommandsProcessor = commandsProcessor
@@ -42,7 +40,7 @@ class PadActor(commandsProcessor: CommandsProcessor, entity: Entity) : Actor {
 
         mCurrentAngularSpeed += angular_accel * dT
 
-        if (Math.signum(mCurrentAngularSpeed) * Math.signum(prevAngularSpeed) < 0) {
+        if (Math.signum(mCurrentAngularSpeed ) * Math.signum(prevAngularSpeed) < 0) {
             mCurrentAngularSpeed = 0f
         }
 
